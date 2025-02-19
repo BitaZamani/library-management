@@ -13,7 +13,7 @@ The **Library Management System** is a modern web-based application designed to 
 - **Search & Filter**: Easily find books based on different criteria.
 - **Secure API**: Uses Express and Supabase for data handling.
 
-## 🖼️ Screenshots
+## Screenshots
 
 Here are some screenshots of the **Library Management System** in action:
 
@@ -76,7 +76,6 @@ SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 #### Start Backend:
 
 ```sh
-cd server.js
 npm node server.js
 ```
 
