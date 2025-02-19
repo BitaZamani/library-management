@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+  /* Custom utility for a divider with a title */
+  .divider-with-title {
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    color: gray;
+    border-bottom: 2px #4ad1e6 solid;
+  }
+
+  .divider-with-title span {
+    font-size: 30px;
+    padding: 10px;
+  }
+  .css-pattern{
+    html {
+  --s: 71px; /* control the size*/
+  --c1: #e8e9e2;
+  --c2: #021f39;
+  
+  --_g: radial-gradient(calc(var(--s)/2),var(--c1) 97%,#0000);
+  background:
+    var(--_g),var(--_g) calc(2*var(--s)) calc(2*var(--s)),
+    repeating-conic-gradient(from 45deg,#0000 0 25%,var(--c2) 0 50%) calc(-.707*var(--s)) calc(-.707*var(--s)),
+    repeating-linear-gradient(135deg,var(--c1) calc(var(--s)/-2) calc(var(--s)/2),var(--c2) 0 calc(2.328*var(--s)));
+  background-size: calc(4*var(--s)) calc(4*var(--s));
+}}
+  .underline-hover {
+    @apply relative text-black cursor-pointer transition-all ease-in-out;
+
+    /* Before and After Pseudo Elements */
+    &::before,
+    &::after {
+      @apply absolute bottom-0 h-[2px] bg-gray-400 origin-center transition-all ease-in-out duration-500;
+      content: "";
+      width: 0;
+    }
+
+    /* Position the lines to start from the center */
+    &::before {
+      left: 50%;
+    }
+    &::after {
+      right: 50%;
+    }
+
+    /* Hover Effect - Animate from the center outwards */
+    &:hover::before,
+    &:hover::after {
+      width: 50%;
+    }
+
+    /* Keep underline on active elements */
+    &:focus::before,
+    &:focus::after,
+    &:active::before,
+    &:active::after {
+      width: 50%;
+    }
+  }
+}
+:root {
+  direction: rtl;
+}
+body {
+  @apply bg-gray-50 text-black; /* Default light mode */
+}
+
+.dark body {
+  @apply bg-gray-950 text-white; /* Dark mode styles */
+}
